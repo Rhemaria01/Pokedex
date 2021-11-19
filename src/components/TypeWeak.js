@@ -3,10 +3,8 @@ import axios from 'axios'
 const TypeWeak = ({url,type}) => {
     const [weakness, setWeakness] = useState([])
     const fetchTypes = async () => {
-        // console.log(pokemon.types[0].type.url)
         const {data} = await axios.get(url);
         setWeakness(data.damage_relations.double_damage_from)
-        console.log(data.damage_relations.double_damage_from)
     }
     useEffect(() => {
         fetchTypes()

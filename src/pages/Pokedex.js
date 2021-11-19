@@ -43,7 +43,7 @@ const Pokedex = () => {
                 <div className="row">
                 {pokedex.results?.map((pokemon, index) => (
                         <SinglePoke index={index} pokemon={pokemon} handleClick={handleClick}/>
-                    ))}
+                    )).reverse()}
                     </div>                
                 </div>
             }
