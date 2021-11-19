@@ -39,7 +39,7 @@ const Evolution = ({pokemon,pokeSpecies}) => {
             <>
             <div className="p-2">
             <FaLongArrowAltRight className="p-2" style={{color: 'black', height:'100px', width:'100px'}}/>
-            <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${evolution.evolves_to[0].evolves_to[0].species?.url.split('/')[6]<100 ? (evolution.evolves_to[0].evolves_to[0].species?.url.split('/')[6]<10 ? "00"+evolution.evolves_to[0].evolves_to[0].species?.url.split('/')[6] : "0"+evolution.evolves_to[0].evolves_to[0].species?.url.split('/')[6]) : evolution.evolves_to[0].evolves_to[0].species?.url.split('/')[6]}.png`} alt=""
+            <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${evolution.evolves_to[0].evolves_to[0].species?.url.split('/')[6]<100 ? (evolution.evolves_to[0].evolves_to[0].species?.url.split('/')[6]<10 ? "00"+evolution.evolves_to[0].evolves_to[0].species?.url.split('/')[6] : "0"+evolution.evolves_to[0].evolves_to[0].species?.url.split('/')[6]) : evolution.evolves_to[0].evolves_to[0].species.url.split('/')[6]}.png`} alt=""
             className="border border-dark border-5 bg-light" 
             style={{width: '300px', height: '300px', borderRadius: '50%'}}
             />

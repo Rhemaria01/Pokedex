@@ -5,17 +5,18 @@ import Stats from './Stats'
 import Weakness from './Weakness'
 import OtherInfo from './OtherInfo'
 import Evolution from './Evolution'
+import Ability from './Ability'
 const PokeInfo = ({pokemon}) => {
 
     const [pokeSpecies, setPokeSpecies] = useState({})
     const [pokeRegion, setPokeRegion] = useState({})
     const fetchPokeSpecies = async (pokemon) => {
         try {
-            const url = `https://pokeapi.co/api/v2/pokemon-species/${pokemon.name}`
+            const url = `https://pokeapi.co/api/v2/pokemon-species/${pokemon.id}`
             const {data} = await axios.get(url)
         setPokeSpecies(data)
         if(data.evolves_from_species === null){
-            const url02 = `https://pokeapi.co/api/v2/pokemon/${pokemon.name}/encounters`
+            const url02 = `https://pokeapi.co/api/v2/pokemon/${pokemon.id}/encounters`
             const {data:data02} = await axios.get(url02)
             setPokeRegion(data02)
         }
@@ -52,34 +53,32 @@ const PokeInfo = ({pokemon}) => {
                         </div>
                         <div className="col-sm-6">
                     <h4 className="text-danger">Abilities</h4>
-                    <ul className="list-group list-group-flush border border-dark rounded me-5 w-50 ">
-                        {pokemon.abilities.map((ability,index) => <li className={`list-group-item boder-bottom border-dark text-capitalize text-light fs-4 bg-danger`}>{ability.ability?.name}</li>)}
+                    <ul className="list-group list-group-flush border border-dark rounded me-5  " style={{minWidth:'50%'}}>
+                        {pokemon.abilities.map((ability,index) => <Ability ability={ability} index={index}/>)}
                     </ul>
                     </div>
                     </div>
                     <div className="row mt-3">
-                    {
-                        pokeSpecies.evolves_from_species !== null ?
-                        <div className="col-sm-6">
-                        <h4 className="text-primary">Evolves From</h4>
-                        <ul className="list-group list-group-flush border border-dark rounded me-5 w-50 ">
-                            <li className={`list-group-item boder-bottom border-dark text-capitalize text-light evolution fs-4 ${pokemon.types[0].type.name}`} >{pokeSpecies.evolves_from_species?.name}</li>
-                        </ul>
+                    
+                        <div className="col">
+                            <h4 className={`text-primary ${pokeSpecies.is_mythical?"text-danger":pokeSpecies.is_legendary?"text-primary":"text-success"}`}>Rarity</h4>
+                            <ul className="list-group list-group-flush border border-dark rounded me-5 w-50 ">
+                                <li className={`list-group-item boder-bottom border-dark text-capitalize  fs-4 fw-bold  bg-primary ${pokeSpecies.is_mythical?"bg-danger text-light":pokeSpecies.is_legendary?"bg-primary text-light":"bg-success text-light"}`}>{pokeSpecies.is_mythical?"Mythical":pokeSpecies.is_legendary?"Legendary":"Common"}</li>
+                            </ul>
+                            
                         </div>
-                        :
-                        <div className="col-sm-6 mb-2">
-                        <h4 className="text-primary">Found in Regions:</h4>
-                        <ul className="list-group list-group-flush border border-dark rounded me-5 w-75 ">
-                            {typeof(pokeRegion[0])===typeof(undefined) ? <li className={`list-group-item boder-bottom border-dark text-capitalize text-light fs-4 bg-primary`}>Rare</li> : pokeRegion.map((location,index) => index<=4 ?<li className={`list-group-item boder-bottom border-dark text-capitalize text-light fs-4 bg-primary`}>{location.location_area.name}</li>:null)}
-                        </ul>
+                        <div className="col">
+                            <h4 className="text-info">Shape</h4>
+                            <ul className="list-group list-group-flush border border-dark rounded me-5 w-50 ">
+                                {<li className={`list-group-item boder-bottom border-dark text-capitalize text-light fs-4 bg-info`}>{pokeSpecies.shape?.name}</li>}
+                            </ul>
                         </div>
-                    }
-                        <div className="col-sm-6">
-                        <h4 className="text-dark">Habitat</h4>
-                        <ul className="list-group list-group-flush border border-dark rounded me-5 w-50 ">
-                        {<li className={`list-group-item boder-bottom border-dark text-capitalize text-light fs-4 bg-dark`}>{typeof(pokeSpecies.habitat?.name) !== typeof(undefined) ? pokeSpecies.habitat?.name : "None"}</li>}
-                    </ul>
-                    </div>
+                        <div className="col">
+                            <h4 className="text-dark">Habitat</h4>
+                            <ul className="list-group list-group-flush border border-dark rounded me-5 w-50 ">
+                                {<li className={`list-group-item boder-bottom border-dark text-capitalize text-light fs-4 bg-dark`}>{typeof(pokeSpecies.habitat?.name) !== typeof(undefined) ? pokeSpecies.habitat?.name : "None"}</li>}
+                            </ul>
+                        </div>
                     </div>    
                 </div>
             </div>
@@ -94,6 +93,18 @@ const PokeInfo = ({pokemon}) => {
                                 <OtherInfo pokemon={pokemon} pokeSpecies={pokeSpecies}/>        
             </div>
             </div>     
+            <div className="row d-flex flex-column mt-5 mb-5">
+            <h1 className="text-dark ms-2 text-center fw-bold">PokeMon Unite Info</h1>
+            <div className="col  ms-3 text-center pe-3">
+            <p className="badge bg-primary  fs-4 m-2">{`Base Experience: ${pokemon.base_experience}`}</p>  
+            <p className="badge bg-success  fs-4 m-2">{`Base Happiness: ${pokeSpecies.base_happiness}`}</p>
+            <p className="badge bg-info  fs-4 m-2">{`Capture Rate: ${pokeSpecies.capture_rate}`}</p>
+            </div>
+            <div className="col  ms-3 text-center pe-3">
+            <p className="badge bg-danger  fs-4 m-2">{`${pokemon.is_default?"Default Pokemon":"Not Default Pokemon"}`}</p>
+            <p className="badge bg-warning  fs-4 m-2">{`Hatch Counter: ${pokeSpecies.hatch_counter}`}</p>
+            </div> 
+            </div>
             <div className="row mt-5 mb-5">
             <div className="col  ms-3  pe-3">
             <h1 className="text-dark  text-center fw-bold" style={{fontSize: '75px'}}>Evolution Chain</h1>
