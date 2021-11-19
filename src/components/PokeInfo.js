@@ -4,6 +4,7 @@ import  axios  from 'axios'
 import Stats from './Stats'
 import Weakness from './Weakness'
 import OtherInfo from './OtherInfo'
+import Evolution from './Evolution'
 const PokeInfo = ({pokemon}) => {
 
     const [pokeSpecies, setPokeSpecies] = useState({})
@@ -33,12 +34,10 @@ const PokeInfo = ({pokemon}) => {
             <h1 className={`card01-header text-center text-info mt-3`}>PokeInfo</h1>
             <div className="row">
                 <div className="col-md-6 text-center ">
-                    <img src={pokemon.sprites?.front_default} className={`img-fluid bg-dark`}  alt=""  style={{
+                    <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokemon.id<100 ? (pokemon.id<10 ? "00"+pokemon.id : "0"+pokemon.id) : pokemon.id}.png`} className={`img-fluid bg-info`}  alt=""  style={{
                     width: '500px',
                     height: '500px',
                 }}
-                onMouseOver={e => (e.currentTarget.src = pokemon.sprites?.back_default)} 
-                onMouseOut={e => (e.currentTarget.src = pokemon.sprites?.front_default)}
                 />
                 <h4 className={`text-capitalize text-center  mt-2 ${pokemon.types[0].type.name} rounded`}>{`${pokemon.name} #${pokemon.id}`}</h4>
                 </div>
@@ -94,7 +93,13 @@ const PokeInfo = ({pokemon}) => {
             <div className="col text-center ms-3 pe-3">
                                 <OtherInfo pokemon={pokemon} pokeSpecies={pokeSpecies}/>        
             </div>
-            </div>        
+            </div>     
+            <div className="row mt-5 mb-5">
+            <div className="col  ms-3  pe-3">
+            <h1 className="text-dark  text-center fw-bold" style={{fontSize: '75px'}}>Evolution Chain</h1>
+                                <Evolution pokeSpecies={pokeSpecies} pokemon={pokemon}/>
+            </div>
+            </div>
         </div>
     )
 }
