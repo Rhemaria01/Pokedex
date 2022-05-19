@@ -30,15 +30,12 @@ const PokeInfo = ({pokemon}) => {
     },[pokemon])
     
     return (
-        <div className={`card01`}>
+        <div className={`card01  mt-5`}>
             
             <h1 className={`card01-header text-center text-info mt-3`}>PokeInfo</h1>
             <div className="row">
                 <div className="col-md-6 text-center ">
-                    <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokemon.id<100 ? (pokemon.id<10 ? "00"+pokemon.id : "0"+pokemon.id) : pokemon.id}.png`} className={`img-fluid bg-info`}  alt=""  style={{
-                    width: '500px',
-                    height: '500px',
-                }}
+                    <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokemon.id<100 ? (pokemon.id<10 ? "00"+pokemon.id : "0"+pokemon.id) : pokemon.id}.png`} className={`img-fluid bg-info`}  alt=""  
                 />
                 <h4 className={`text-capitalize text-center  mt-2 ${pokemon.types[0].type.name} rounded`}>{`${pokemon.name} #${pokemon.id}`}</h4>
                 </div>
@@ -47,13 +44,13 @@ const PokeInfo = ({pokemon}) => {
                     <div className="row mt-4">
                         <div className="col-sm-6">
                     <h4 className={`${pokemon.types[0].type.name}`}>Types</h4>
-                    <ul className="list-group text-center list-group-flush border border-dark rounded me-5 w-50 ">
+                    <ul className="list-group text-center list-group-flush border border-dark rounded ">
                         {pokemon.types.map((type,index) => <li className={`list-group-item boder-bottom border-dark text-capitalize text-light fs-4 ${type.type.name }`}>{type.type.name}</li>)}
                     </ul>
                         </div>
                         <div className="col-sm-6">
                     <h4 className="text-danger">Abilities</h4>
-                    <ul className="list-group list-group-flush border border-dark rounded me-5  " style={{minWidth:'50%'}}>
+                    <ul className="list-group list-group-flush border border-dark rounded" style={{minWidth:'50%'}}>
                         {pokemon.abilities.map((ability,index) => <Ability ability={ability} index={index}/>)}
                     </ul>
                     </div>
@@ -62,14 +59,14 @@ const PokeInfo = ({pokemon}) => {
                     
                         <div className="col">
                             <h4 className={`text-primary ${pokeSpecies.is_mythical?"text-danger":pokeSpecies.is_legendary?"text-primary":"text-success"}`}>Rarity</h4>
-                            <ul className="list-group list-group-flush border border-dark rounded me-5 w-50 ">
+                            <ul className="list-group list-group-flush border border-dark rounded ">
                                 <li className={`list-group-item boder-bottom border-dark text-capitalize  fs-4 fw-bold  bg-primary ${pokeSpecies.is_mythical?"bg-danger text-light":pokeSpecies.is_legendary?"bg-primary text-light":"bg-success text-light"}`}>{pokeSpecies.is_mythical?"Mythical":pokeSpecies.is_legendary?"Legendary":"Common"}</li>
                             </ul>
                             
                         </div>
                         <div className="col">
                             <h4 className="text-info">Shape</h4>
-                            <ul className="list-group list-group-flush border border-dark rounded me-5 w-50 ">
+                            <ul className="list-group list-group-flush border border-dark rounded ">
                                 {<li className={`list-group-item boder-bottom border-dark text-capitalize text-light fs-4 bg-info`}>{pokeSpecies.shape?.name}</li>}
                             </ul>
                         </div>

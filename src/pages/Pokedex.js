@@ -68,7 +68,7 @@ const Pokedex = () => {
         setFlag(!flag)
     }
     return (
-        <div className="pt-5 flexer" >
+        <div className="flexer" >
         {window.scrollTo(0, 0)}
             <h1>Pokedex</h1>
 
@@ -97,14 +97,14 @@ const Pokedex = () => {
                     <li className="dropdown-item" onClick={() => setSort("Id-Reverse")} style={{cursor: "pointer"}}>Pokedex Id Reverse</li>
                 </ul>
             </div>
-             <div className="cardaa">
-                <div className="row">
+             
+                <div className="pokedex-flexer">
                 {pokedex.map((pokemon, index) => (
                         <SinglePoke index={index} pokemon={pokemon} handleClick={handleClick}/>
                     ))
                     }
-                    </div>                
-                </div>
+                </div>                   
+                
             </>
             }
 

@@ -25,13 +25,13 @@ const PokeType = () => {
             <h1>PokeFinder</h1>
             {typeof(pokemon.name) !== typeof(undefined) ? 
             <>
-            <div className="card">
+            <div className="search-card">
             <div className="input-group mb-3 text-center" >
                 <input type="text"  value={pokeName} placeholder="Enter Pokemon Name or ID" className="border inputBox text-center w-75 text-uppercase" onChange={(e) => setPokeName(e.target.value.toLowerCase())}/>
                     <button className="btn btn01 w-25" type="button" id="button-addon2" onClick={fetchPokemonType}>Search</button>
                 </div>
             <div className="imgBox row">
-                <div className="col-md-6 border-end border-warning">
+                <div className="col-6 border-end border-warning">
             <img 
             src={pokemon.sprites?.front_default}
             className="card-img-top" 
@@ -40,7 +40,7 @@ const PokeType = () => {
             alt="..." />
             <p className="text-center text-decoration-underline fw-bold">Normal</p>
             </div>
-            <div className="col-md-6 border-start border-warning">
+            <div className="col-6 border-start border-warning">
             <img 
             src={pokemon.sprites?.front_shiny}
             className="card-img-top" 
@@ -62,7 +62,7 @@ const PokeType = () => {
             </>
             : 
             <>
-            <div className="card">
+            <div className="search-card">
                 <div className="input-group mb-3 text-center">
             <input type="text"  value={pokeName} placeholder="Enter Pokemon Name or ID" className="w-75 border inputBox text-center text-uppercase" onChange={(e) => setPokeName(e.target.value.toLowerCase())}/>
             <button className="btn btn01 w-25 float-end" onClick={fetchPokemonType}>Search</button>

@@ -13,13 +13,11 @@ const SinglePoke = ({pokemon,index,handleClick}) => {
         fetchSinglePoke()
     }, [pokemon])
     return (
-        <div className={`col-2 card mt-2  me-2 `} onClick={() => typeof(singlePoke.sprites?.front_default) === typeof(undefined) ?  toast.warning("Please wait") :handleClick(singlePoke)} >
+        <div className={`flexer card`} onClick={() => typeof(singlePoke.sprites?.front_default) === typeof(undefined) ?  toast.warning("Please wait") :handleClick(singlePoke)} >
             {
-                typeof(singlePoke.sprites?.front_default) === typeof(undefined) ? <Loader type="ThreeDots" color="#00BFFF" height={100} width={100} /> : 
+                typeof(singlePoke.sprites?.front_default) === typeof(undefined) ? <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div> : 
                 <>
-                <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${singlePoke.id<100 ? (singlePoke.id<10 ? "00"+singlePoke.id : "0"+singlePoke.id) : singlePoke.id}.png`} className="card-img-top" alt={singlePoke.name} 
-                // onMouseOver={e => (e.currentTarget.src = singlePoke.sprites?.back_default)} 
-                // onMouseOut={e => (e.currentTarget.src = singlePoke.sprites?.front_default)}
+                <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${singlePoke.id<100 ? (singlePoke.id<10 ? "00"+singlePoke.id : "0"+singlePoke.id) : singlePoke.id}.png`} className="card-img-top pokemon-image" alt={singlePoke.name} 
                 />
                 <h4 className={`card-title text-center  ${singlePoke.length === 0? null: singlePoke.types[0].type.name} text-capitalize`}>{`${singlePoke.name} #${singlePoke.id}`}</h4>
                 <div className="flex-row">

@@ -23,7 +23,7 @@ const Header = () => {
       <Navbar className="navbar fixed-top" light expand="md">
       <NavbarBrand className="navbar-brand">
           
-          <Link to="/" className="text-dark ms-5 me-2 fs-4"><MdCatchingPokemon /> Pokemon</Link>
+          <Link to="/" className="text-dark logo ms-5 me-2 fs-4"><MdCatchingPokemon className='spinner'/> Pokemon</Link>
       </NavbarBrand>
       
       <NavbarToggler onClick={toggle}/>

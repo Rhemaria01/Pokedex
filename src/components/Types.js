@@ -14,17 +14,17 @@ const Types = () => {
     
     return (
 
-        <div className="pt-5 text-center">
+        <div className="text-center">
         {window.scrollTo(0, 0)}
             <h1>Types</h1>
-            <div className="container">
-                <div className="row p-3">
+            
+            <div className="types-flexer">
 
                     {types.map((type, index) => (
                         <TypeInfo index={index} types={type} fetchTypes={fetchTypes}/>
                     ))}
-                </div>                
-                </div>
+            </div>
+                
         </div>
     )
 }

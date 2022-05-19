@@ -12,7 +12,7 @@ const TypeInfo = ({fetchTypes, types, index}) => {
         
     }
     return (
-        <div className={`col-2 card mt-2 me-2  ${types}`} onClick={() => flipCard(index+1)} id={types}>
+        <div className={`col-2 card mt-2 ${types}`} onClick={() => flipCard(index+1)} id={types}>
                         <p className="fs-1 text-light text-capitalize">{types}</p>
                         {
                             isFlipped ? (

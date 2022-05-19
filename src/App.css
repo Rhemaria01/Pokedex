@@ -22,7 +22,44 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 1080px;
 }
+@media screen and (max-width: 720px) {
+    .flexer {
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+        max-width: 720px;
+    }
+  }
+@media screen and (max-width: 1080px) {
+    .flexer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 1080px;
+    }
+  }
+  @media screen and (max-width: 320px) {
+    .flexer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 320px;
+    }
+  }
+  @media screen and (max-width: 1920px) {
+    .flexer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 1920px;
+    }
+  }
 .types{
     background-image: url("./assets/bgpokemon.png");
     background-repeat: no-repeat;
@@ -78,8 +115,8 @@ p.card-text{
     font-weight: bold;
     border-radius: 16px;
 }
-.card{
-    width: 25rem; 
+.card,.search-card{
+    width: 20rem; 
     background: 	#FAD5A5;
     border-radius: 16px;
     margin-top: 20px;
@@ -276,6 +313,7 @@ div.col-2:hover{
     color: black;
     text-decoration: none;
 }
+
 .nav-link{
     margin-right: 10px;
     margin-left: 10px;
@@ -300,12 +338,15 @@ div.col-2:hover{
     background: #FAD5A5;
     border-radius: 16px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-bottom: 10px;
-    margin-top: 2rem;
-    margin-left: 4rem;
-    margin-right: 4rem;
-    min-width: 100rem;
+    max-width: 75%;
 }
+@media screen and (max-width: 600px){
+    .card01{
+        max-width: 50%;
+    }
+}
+    
+
 .cardaa{
 
     border-radius: 16px;
@@ -336,3 +377,311 @@ div.col-2:hover{
 .link{
     text-decoration: none;
 }
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.logo{
+
+  animation: fade 1500ms ease-in-out forwards;
+  opacity: 0;
+  transform: translateX(50%);
+  }
+  @keyframes fade {
+    0% {
+      opacity: 0;
+      transform: translateX(50%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+    .spinner{
+        animation: spin 1s  linear;
+    }
+    @keyframes spin { 
+        to {
+    
+    transform: rotate(360deg);
+        }
+    }
+    .pokemon-image{
+        width: 50%;
+        height: 50%;
+    }
+    .lds-ellipsis {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+      }
+      .lds-ellipsis div {
+        position: absolute;
+        top: 33px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: rgb(0, 155, 202);
+        animation-timing-function: cubic-bezier(0, 1, 1, 0);
+      }
+      .lds-ellipsis div:nth-child(1) {
+        left: 8px;
+        animation: lds-ellipsis1 0.6s infinite;
+      }
+      .lds-ellipsis div:nth-child(2) {
+        left: 8px;
+        animation: lds-ellipsis2 0.6s infinite;
+      }
+      .lds-ellipsis div:nth-child(3) {
+        left: 32px;
+        animation: lds-ellipsis2 0.6s infinite;
+      }
+      .lds-ellipsis div:nth-child(4) {
+        left: 56px;
+        animation: lds-ellipsis3 0.6s infinite;
+      }
+      @keyframes lds-ellipsis1 {
+        0% {
+          transform: scale(0);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @keyframes lds-ellipsis3 {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(0);
+        }
+      }
+      @keyframes lds-ellipsis2 {
+        0% {
+          transform: translate(0, 0);
+        }
+        100% {
+          transform: translate(24px, 0);
+        }
+      }
+      .pokedex-flexer{
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        gap: 10px;
+      }
+      .types-flexer{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 10px;
+        margin-bottom: 25px;
+      }
+      @media screen and (max-width: 1350px){
+        .pokedex-flexer{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 10px;
+        margin-bottom: 25px;
+
+        }
+      }
+      @media screen and (max-width: 1020px){
+        .pokedex-flexer,.types-flexer{
+        display: grid;
+        grid-template-columns: auto  auto;
+        gap: 10px;
+        margin-bottom: 25px;
+
+        }
+      }
+          
+      @media screen and (max-width: 720px){
+        .pokedex-flexer,.types-flexer{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        margin-bottom: 25px;
+        gap: 10px;
+        }
+        .card{
+            width: 12rem; 
+            background: 	#FAD5A5;
+            border-radius: 16px;
+            margin-top: 20px;
+        
+        }
+        .fire{
+            background-color: #EE8130;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .flying{
+            background-color: #A98FF3;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .grass{
+            background-color: #7AC74C;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .water{
+            background-color: #6390F0;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .normal{
+            background-color: #A8A77A;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .fighting{
+            background-color: #C22E28;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .poison{
+            background-color: #A33EA1;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .ground{
+            background-color: #E2BF65;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .rock{
+            background-color: #B6A136;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .bug{
+            background-color: #A6B91A;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .electric{
+            background-color: #A1871F;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .psychic{
+            background-color: #F95587;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .ice{
+            background-color: #638D8D;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .ghost{
+            background-color: #735797;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .dragon{
+            background-color: #6F35FC;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .dark{
+            background-color: #705746;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .steel{
+            background-color: #B7B7CE;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .fairy{
+            background-color: #D685AD;
+            font-family: 'Fjalla One', sans-serif;
+        }
+      }
+      @media screen and (max-width: 635px){
+        .pokedex-flexer,.types-flexer{
+        display: grid;
+        grid-template-columns: auto auto ;
+        gap: 10px;
+        margin-bottom: 25px;
+
+        }
+        
+      }
+      @media screen and (max-width: 400px){
+        .pokedex-flexer,.types-flexer{
+        display: grid;
+        grid-template-columns: auto auto ;
+        gap: 5px;
+        margin-bottom: 25px;
+        }
+        .card{
+            width: 10rem; 
+            background: 	#FAD5A5;
+            border-radius: 16px;
+            margin-top: 20px;
+        
+        }
+        .fire{
+            background-color: #EE8130;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .flying{
+            background-color: #A98FF3;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .grass{
+            background-color: #7AC74C;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .water{
+            background-color: #6390F0;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .normal{
+            background-color: #A8A77A;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .fighting{
+            background-color: #C22E28;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .poison{
+            background-color: #A33EA1;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .ground{
+            background-color: #E2BF65;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .rock{
+            background-color: #B6A136;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .bug{
+            background-color: #A6B91A;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .electric{
+            background-color: #A1871F;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .psychic{
+            background-color: #F95587;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .ice{
+            background-color: #638D8D;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .ghost{
+            background-color: #735797;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .dragon{
+            background-color: #6F35FC;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .dark{
+            background-color: #705746;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .steel{
+            background-color: #B7B7CE;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        .fairy{
+            background-color: #D685AD;
+            font-family: 'Fjalla One', sans-serif;
+        }
+      }
+          
+      
