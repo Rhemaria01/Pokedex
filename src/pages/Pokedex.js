@@ -4,11 +4,23 @@ import SinglePoke from '../components/SinglePoke'
 import PokeInfo from '../components/PokeInfo'
 import {ImShuffle} from 'react-icons/im'
 import {CgPokemon} from 'react-icons/cg'
+const pokemonPerPage = 20;
+let arrayForHoldingPokemon = [];
 const Pokedex = () => {
     const [pokedex, setPokedex] = useState([])
+    
     const [pokemon, setPokemon] = useState("")
     const [flag, setFlag] = useState(false)
     const [sort, setSort] = useState("")
+    const [pokemonToShow, setPokemonToShow] = useState([])
+    const [next, setNext] = useState(20)
+    const loopWithSlice = (start, end, pokemons) => {
+        
+        const slicedPokemon = pokemons.slice(start, end);
+        arrayForHoldingPokemon = [ ...slicedPokemon];
+        setPokemonToShow(arrayForHoldingPokemon);
+      
+    }
     const fetchPokedex = async () => {
         try {
             var url = `https://pokeapi.co/api/v2/pokemon?limit=898&offset=0`
@@ -17,16 +29,22 @@ const Pokedex = () => {
                 
                 switch (sort) {
                     case "Id":
-                        setPokedex(data.results)  
+                        setPokedex(data.results) 
+                        loopWithSlice(0, pokemonPerPage, data.results);
                         break; 
                     case "Id-Reverse":
                         setPokedex(data.results.reverse())  
+                        console.log(data.results.reverse())
+                        loopWithSlice(0, pokemonPerPage, data.results.reverse());
+
                         break;  
                     case "A-Z":
-                        setPokedex(data.results.sort((a,b) => a.name > b.name ? 1 : -1));   
+                        setPokedex(data.results.sort((a,b) => a.name > b.name ? 1 : -1));  
+                        loopWithSlice(0, pokemonPerPage, data.results.sort((a,b) => a.name > b.name ? 1 : -1)); 
                         break;
                     case "Z-A":
                         setPokedex(data.results.sort((a,b) => a.name > b.name ? -1 : 1));
+                        loopWithSlice(0, pokemonPerPage, data.results.sort((a,b) => a.name > b.name ? -1 : 1));
                         break;   
                     case "Suprise":
                         for (var i = data.results.length - 1; i > 0; i--) {
@@ -39,10 +57,13 @@ const Pokedex = () => {
                             data.results[j] = temp;
                         }
              
-                        return setPokedex(data.results)
+                        setPokedex(data.results)
+                        loopWithSlice(0, pokemonPerPage, data.results);
+                        break;
                            
                     default:
                         setPokedex(data.results)
+                        loopWithSlice(0, pokemonPerPage, data.results);
                         break;
                     }
                     
@@ -57,8 +78,14 @@ const Pokedex = () => {
         }
     }
     useEffect(() => {
+        
         fetchPokedex()
+        
     }, [sort])
+    const handleShowMorePokemon = () => {
+        loopWithSlice(0, next + pokemonPerPage, pokedex);
+        setNext(next + pokemonPerPage);
+      };
     const handleSuprise = () => {
         setSort("Suprise")
         fetchPokedex()
@@ -98,10 +125,11 @@ const Pokedex = () => {
             </div>
              
                 <div className="pokedex-flexer">
-                {pokedex.map((pokemon, index) => (
+                {pokemonToShow.map((pokemon, index) => (
                         <SinglePoke index={index} pokemon={pokemon} handleClick={handleClick}/>
                     ))
                     }
+                    <button className='btn btn-primary mb-5' onClick={handleShowMorePokemon}>Load more</button>
                 </div>                   
                 
             </>

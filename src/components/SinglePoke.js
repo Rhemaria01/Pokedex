@@ -13,6 +13,7 @@ const SinglePoke = ({pokemon,index,handleClick}) => {
         fetchSinglePoke()
     }, [pokemon])
     return (
+        
         <div className={`flexer card`} onClick={() => typeof(singlePoke.sprites?.front_default) === typeof(undefined) ?  toast.warning("Please wait") :handleClick(singlePoke)} >
             {
                 typeof(singlePoke.sprites?.front_default) === typeof(undefined) ? <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div> : 
