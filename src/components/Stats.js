@@ -2,12 +2,12 @@ import React from 'react'
 
 const Stats = ({pokemon}) => {
     return (
-        <div >
-            <h2 className="text-secondary fw-bold">Base Stats</h2>
+        <div>
+            <h2 className="text-secondary  fw-bold">Base Stats</h2>
                     
                     <h4 className="text-success">HP</h4>
-                    <div className="progress mb-2">
-                        <div className="progress-bar bg-success" role="progressbar" style={{width: `${(pokemon.stats[0].base_stat/2)}%`}}  aria-valuemax="100"></div>
+                    <div className="progress  mb-2">
+                        <div className="progress-bar  bg-success" role="progressbar" style={{width: `${(pokemon.stats[0].base_stat/2)}%`}}  aria-valuemax="100"></div>
                     </div>
                     <h4 className="text-info">Attack</h4>
                     <div className="progress mb-2">

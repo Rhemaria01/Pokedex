@@ -73,14 +73,13 @@ const Pokedex = () => {
             <h1>Pokedex</h1>
 
             {flag ?
-                <div className="cardbb ">
-                <div className="row">
+                <>
                 <PokeInfo pokemon={pokemon}/>
                 <div className="text-center">
-                <button className="btn btn-danger w-50" onClick={() =>setFlag(!flag)}>Back</button>
+                <button className="btn btn-danger" onClick={() =>setFlag(!flag)}>Back</button>
                 </div>
-                </div>                
-                </div>
+                </>
+                
              : 
              <>
              

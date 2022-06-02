@@ -21,17 +21,9 @@ const Ability = ({ability,index}) => {
     }
     return (
         // <div></div>
-        <li className={`list-group-item boder-bottom user-select-none border-dark text-capitalize text-light p-1 fs-4 bg-danger`}  >{isFlipped? 
-        <>
-        {singleAbility} 
-        <AiFillCloseCircle className="mb-1 ms-1" onClick={handleClick} style={{cursor:'pointer'}}/> 
-        </>
-        :
-            <>
-        {ability.ability?.name}
-        <AiFillQuestionCircle className="mb-1 ms-1" onClick={handleClick} style={{cursor:'pointer'}}/>
-        </>
-        }</li>
+        <li className={`list-group-item boder-bottom user-select-none border-dark text-capitalize text-light p-1 fs-4 bg-danger`}  >
+        {ability.ability?.name} 
+        </li>
     )
 }
 
