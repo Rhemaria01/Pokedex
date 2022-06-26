@@ -84,19 +84,13 @@ const PokeInfo = ({pokemon}) => {
             <OtherInfo pokemon={pokemon} pokeSpecies={pokeSpecies}/>
             </div>
             </div>
-            {/* 
+            <div className='grid-item-04'>
+            <h1 className="text-dark  text-center fw-bold resizer" >Evolution Chain</h1>
+                                <Evolution pokeSpecies={pokeSpecies} pokemon={pokemon}/>
             
-            <div className="row mt-5 mb-5">
-            <div className="col text-center ms-3 border-end border-2 border-dark pe-3">
-                                <Stats pokemon={pokemon}/>          
             </div>
-            <div className="col text-center ms-3 border-end border-2 border-dark pe-3">
-                                <Weakness pokemon={pokemon}/>        
-            </div>
-            <div className="col text-center ms-3 pe-3">
-                                <OtherInfo pokemon={pokemon} pokeSpecies={pokeSpecies}/>        
-            </div>
-            </div>     
+            {/* 
+                 
             <div className="row mt-5 mb-5">
             <div className="col  ms-3  pe-3">
             <h1 className="text-dark  text-center fw-bold" style={{fontSize: '75px'}}>Evolution Chain</h1>

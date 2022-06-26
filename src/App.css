@@ -522,9 +522,15 @@ div.col-2:hover{
         grid-column-end: 5;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
         gap: 10px;
-    }   
+        border-bottom: #000000 solid 2px;
+        
+    }  
+    .grid-item-04{
+        grid-column-start: 1;
+        grid-column-end: 5;
+    } 
     .grid-item-03-01{
         grid-column-start: 1;
         grid-column-end: 5;
@@ -533,15 +539,20 @@ div.col-2:hover{
     .grid-item-03-02{
         grid-column-start: 1;
         grid-column-end: 3;
+        padding-left: 2rem;
     }
     .grid-item-03-03{
         grid-column-start: 3;
-        grid-column-end: 5;
+        grid-column-end: 4;
+        border-left: #000000 solid 2px;
+        padding-left: 2rem;
+        
     }
     .grid-item-03-02, .grid-item-03-03{
         display: flex;
         justify-content: center;
         align-items: center;
+
     }
 
         
@@ -559,6 +570,9 @@ div.col-2:hover{
           display: grid;
           grid-template-columns: auto auto auto auto;
           gap: 10px;
+        }
+        .resizer{
+            font-size: 75px;
         }
         @media screen and (max-width: 1350px){
             .pokedex-flexer{
@@ -585,17 +599,27 @@ div.col-2:hover{
         .pokeinfo-card{
             width: 50rem;
         }
+        .img-sizer{
+            width: 10rem;
+            height:10rem;
+        }
+        .resizer{
+            font-size: 50px;
+        }
       }
       @media screen and (max-width: 900px){
         
         .pokeinfo-card{
-            width: 42rem;
+            width: 45rem;
         }
         .pokeinfo-image{
             width: 15rem;
             height: 15rem;
         }
-        
+        .img-sizer{
+            width: 8rem;
+            height:8rem;
+        }
       }
           
       
@@ -622,6 +646,21 @@ div.col-2:hover{
             margin-left: 5px;
             grid-column-start: 1;
             grid-column-end: 5;
+        } 
+        .grid-item-03{ 
+             
+            grid-column-start: 1; 
+            grid-column-end: 5; 
+        } 
+        .grid-item-03-02{ 
+            grid-column-start: 1; 
+            grid-column-end: 5; 
+        } 
+        .grid-item-03-03{ 
+            grid-column-start: 1; 
+            grid-column-end: 5; 
+            border-top: #000000 solid 2px;
+            border-left: none;
         }
         .card{
             width: 12rem; 
@@ -742,7 +781,7 @@ div.col-2:hover{
         margin-bottom: 25px;
         }
         .pokeinfo-card{
-            width: 20rem;
+            width: 22rem;
         }
         .pokeinfo-image{
             width: 15rem;

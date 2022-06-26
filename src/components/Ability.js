@@ -21,7 +21,7 @@ const Ability = ({ability,index}) => {
     }
     return (
         // <div></div>
-        <li className={`list-group-item boder-bottom user-select-none border-dark text-capitalize text-light p-1 fs-4 bg-danger`}  >
+        <li className={`list-group-item border-bottom user-select-none border-dark text-capitalize text-light p-1 fs-4 bg-danger`}  >
         {ability.ability?.name} 
         </li>
     )

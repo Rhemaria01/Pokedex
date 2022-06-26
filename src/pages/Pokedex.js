@@ -78,7 +78,7 @@ const Pokedex = () => {
         }
     }
     useEffect(() => {
-        
+        // eslint-disable-next-line
         fetchPokedex()
         
     }, [sort])
