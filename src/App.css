@@ -625,6 +625,10 @@ div.col-2:hover{
       
           
       @media screen and (max-width: 720px){
+        .img-sizer{
+            height: 6rem;
+            width: 6rem;
+        }
         .pokedex-flexer,.types-flexer{
         display: grid;
         grid-template-columns: auto auto auto;
@@ -743,6 +747,17 @@ div.col-2:hover{
         }
       }
       @media screen and (max-width: 635px){
+        .text-sizer{
+            font-size: 1rem !important;
+        }
+        .image-sizer{
+            height: 4rem;
+            width: 4rem;
+        }
+        .arrow-sizer{
+            height: 50px !important;
+            width: 50px !important;
+        }
         .pokedex-flexer,.types-flexer{
         display: grid;
         grid-template-columns: auto auto ;
@@ -774,6 +789,7 @@ div.col-2:hover{
         
       }
       @media screen and (max-width: 480px){
+        
         .pokedex-flexer,.types-flexer{
         display: grid;
         grid-template-columns: auto auto ;
